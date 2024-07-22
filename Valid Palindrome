@@ -1,0 +1,61 @@
+class Solution {
+public:
+    bool validPalindrome(string s) {
+        int n=s.size();
+        // unordered_map<char,int>mp;
+        // int cnt=0;
+        // for(int i=0;i<n;i++)
+        // {
+        //     mp[s[i]]++;
+        // }
+
+        // for(auto ch:mp)
+        // {
+        //     if(ch.second%2!=0)
+        //     {
+        //         cnt++;
+        //     }
+        // }
+
+        // if(cnt>1)
+        // {
+        //     return false;
+        // }
+        // else
+        // {
+        //     return true;
+        // }
+
+        int i=0;
+        int j=n-1;
+        int cnt=0;
+        while(i<j)
+        {
+            if(s[i]==s[j])
+            {
+                continue;
+                i++;
+                j--;
+            }
+            else if(s[i]!=s[j])
+            {
+                    cnt++;
+                    i++;
+                    j--;
+            }
+           
+            
+        }
+
+        if(cnt>=2)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+        
+    }
+};
