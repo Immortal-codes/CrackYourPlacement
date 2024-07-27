@@ -1,0 +1,36 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int ceilSearch(int arr[], int low, int high, int x) 
+{ 
+	
+	int i; 
+	
+
+		then return the first element */
+	if(x <= arr[low]) 
+		return low; 
+	
+
+	for(i = low; i < high; i++) 
+	{ 
+		if(arr[i] == x) 
+		return i; 
+	
+
+		arr[i+1], then return arr[i+1] */
+		if(arr[i] < x && arr[i+1] >= x) 
+		return i+1; 
+	}	 
+	
+
+		of the array, return -1 in this case */
+	return -1; 
+} 
+
+
+
+
+// This is code is contributed by rathbhupendra
