@@ -1,0 +1,42 @@
+// C++ program to count total heads 
+// and tails after N flips in a coin 
+#include<bits/stdc++.h>
+using namespace std;
+
+// Function to find count of head and tail 
+pair<int, int> count_ht(char s, int N)
+{
+    
+    // Check if initially all the 
+    // coins are facing towards head 
+    pair<int, int>p;
+    if(s == 'H')
+    {
+        p.first = floor(N / 2.0);
+        p.second = ceil(N / 2.0);
+    }
+    
+    // Check if initially all the coins 
+    // are facing towards tail 
+    else if(s == 'T')
+    {
+        p.first = ceil(N / 2.0);
+        p.second = floor(N / 2.0);
+    }
+    
+    return p;
+}
+
+// Driver code
+int main()
+{
+    char C = 'H';
+    int N = 5;
+    
+    pair<int, int> p = count_ht(C, N);
+    
+    cout << "Head = " << (p.first) << "\n";
+    cout << "Tail = " << (p.second) << "\n";
+}
+
+// This code is contributed by virusbuddah_
