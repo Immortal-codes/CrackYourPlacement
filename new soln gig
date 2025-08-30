@@ -1,0 +1,41 @@
+class Solution {
+  public:
+    bool valid(int z, vector<vector<int>>& mat){
+        int n = mat.size();
+        for(int i=0;i<n;i++){
+            if(i!=z && mat[i][z]==0)
+              return false;
+        }
+        return true;
+    }
+  
+    int celebrity(vector<vector<int>>& mat) {
+        // code here
+        vector<int> possibleCan;
+        
+        int n = mat.size();
+        vector<int> knows(n, 0);
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i!=j && mat[i][j]==1)
+                  knows[i]++;
+            }
+        }
+        
+        for(int i=0;i<n;i++){
+            if(knows[i]==0)
+              possibleCan.push_back(i);
+        }
+        
+        if(possibleCan.size()>1)
+          return -1;
+        
+        for(auto z: possibleCan){
+            if(valid(z, mat))
+              return z;
+        }
+        
+        return -1;
+    }
+};
